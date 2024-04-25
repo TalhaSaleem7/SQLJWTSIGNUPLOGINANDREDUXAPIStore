@@ -138,6 +138,24 @@ export const userDetail = createSlice({
   },
 
   extraReducers: {
+
+    //
+    [signup.pending]: (state) => {
+      state.loading = true;
+    },
+    [signup.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.users.push(action.payload);
+    },
+    [signup.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload.message;
+    }, 
+
+
+    // 
+
+
     [createUser.pending]: (state) => {
       state.loading = true;
     },

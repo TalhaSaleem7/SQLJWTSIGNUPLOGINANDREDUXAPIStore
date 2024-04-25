@@ -2,9 +2,11 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const mysql = require('mysql2/promise');
+const cors = require('cors'); // Import cors middleware
 
 const app = express();
 app.use(express.json());
+app.use(cors()); // Use cors middleware
 
 // MySQL Connection Pool
 const pool = mysql.createPool({
